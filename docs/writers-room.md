@@ -75,6 +75,50 @@ Only after explicit owner authorization to execute:
 
 The phases are fixed: three independent writer proposals; three collaborative writer developments plus Showrunner packet; two independent editorial reviews; one Showrunner revision plan and zero to three writer revisions; final Showrunner report. All outputs remain provisional.
 
+## Comedy Lab pilot plan (opt-in)
+
+`prepare --plan comedy-lab-pilot` records an alternative, smaller execution plan in the session manifest. With no `--plan`, a session is the standard five-phase room and nothing about it changes. A manifest that names a plan this code does not know is refused; it never falls back to the standard room.
+
+The pilot is exactly five role invocations and then stops at `awaiting_owner_approval`:
+
+1. `pilot-1-writing`: `character-dialogue`, `situational-comedy`, `satire-observation`. Each writes one scene from the brief and its own role text. No writer's prompt contains another's work.
+2. `pilot-2-assessment`: `comedy-editor` receives the three scenes as `Scene 1`, `Scene 2`, `Scene 3`.
+3. `pilot-3-selection`: `showrunner` receives the same labelled scenes, then the editor's assessment after them.
+
+There is no collaborative round, character editor, revision plan, revision, or follow-up phase in this plan.
+
+What `prepare` does differently for the plan:
+
+- `--assignment` must be an explicit Markdown path. Keep the brief and any casting sheet in the ignored `writers-room/private/` folder; they are not public source.
+- Role instructions come from `templates/writers-room/plans/comedy-lab-pilot/roles/`. Their text and SHA-256 are copied into the manifest and into `roles/` inside the session. `run` uses only that snapshot and stops if it no longer matches.
+- `voice.md` is required and fingerprinted with the six standard Bible files, embedded in every prompt, and re-verified before every prompt.
+- Default models come from `templates/writers-room/plans/comedy-lab-pilot/models.json`; the comedy editor and showrunner use different families. `--models` still replaces it.
+- A random scene-label mapping is stored in the manifest as `plan.scene_labels`. It is provenance for the owner and is never placed in a prompt.
+
+```bash
+./bin/slop writers-room prepare \
+  --plan comedy-lab-pilot \
+  --room-dir /path/to/clean-room \
+  --bible-dir /mnt/c/Users/skort/Projects/agentic-bull-media/bible \
+  --assignment /path/to/private/assignment.md \
+  --session-id NEW_SESSION_ID
+./bin/slop --json writers-room status /path/to/clean-room/sessions/NEW_SESSION_ID
+```
+
+Only after explicit owner authorization to execute:
+
+```bash
+./bin/slop writers-room run /path/to/clean-room/sessions/NEW_SESSION_ID --authorize-model-calls
+```
+
+Scenes are written to `artifacts/pilot-1-writing/`. Read them before the assessment and selection.
+
+### Isolation: what is and is not guaranteed
+
+- Guaranteed by this code: a writer's prompt contains only its role snapshot, the Bible text, the brief and its task. Editor and showrunner prompts contain scenes under anonymous labels only.
+- Enforced before any call: a pilot session refuses to run if any other session folder exists in its own room directory or under this checkout's `writers-room/sessions/`. Run it from a separate clean checkout of the public source (for example a `git worktree` outside the main checkout) with its own `--room-dir`.
+- Not guaranteed: the shared runner passes the job folder and the whole toolkit checkout to each CLI as readable directories, and the Codex sandbox restricts writes, not reads. Inside a clean checkout a job could still read another pilot job's folder or the session manifest, including the label mapping. A CLI may also be able to read other paths on the machine. Each prompt tells the role to read nothing outside its job folder; that is an instruction, not a technical boundary.
+
 ## Local execution requirements and boundaries
 
 Python 3.11+ and Node 18.17+ are needed for the room/runner. The existing Python 3.12 fallback and Node 20 installation have executed this room. Claudia's full managed venv, FFmpeg and renderer are not requirements for these jobs; the generic runner doctor may still flag missing production tools.
