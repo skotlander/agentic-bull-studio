@@ -1,4 +1,12 @@
-# Claudia
+# Agentic Bull Studio
+
+This checkout adds the local *Business as Unusual* writers' room to the Claudia toolkit. Start with the [writers' room operating guide](docs/writers-room.md) and [repository/authority notes](docs/repository-reconciliation.md).
+
+Agentic Bull's creative authority is the separate `agentic-bull-media/bible/` repository. The Claudia/gallery authority statements below concern the upstream Claudia character and production toolkit. They do not govern Agentic Bull or establish new series canon.
+
+The current ensemble follow-up is closed with creative criteria unmet. References remain unapproved, proof cards are shelved, and future development requires a separate owner decision.
+
+## Claudia toolkit (upstream documentation)
 
 **Claudia content, sized to the ask.** Claudia is an open toolkit plus a Grok Bot template for making work with
 Claudia, the AI popstar and open character: a still, a clip, a song, a music video or a post. Claudia is the lead by
