@@ -1,0 +1,11 @@
+{
+  "description": "Editable preferred model assignments. The existing runner passes these selectors to installed local CLIs; it does not provide new provider integrations.",
+  "roles": {
+    "character-dialogue": {"engine": "claude", "model": "sonnet", "reasoning": "high", "preferred_model": "Claude Sonnet 5.5", "timeout_s": 900},
+    "situational-comedy": {"engine": "codex", "model": "gpt-5.6-terra", "reasoning": "high", "preferred_model": "GPT-5.6 Terra", "timeout_s": 900},
+    "satire-observation": {"engine": "claude", "model": "sonnet", "reasoning": "high", "preferred_model": "Claude Sonnet 5.5", "timeout_s": 900},
+    "comedy-editor": {"engine": "codex", "model": "gpt-5.6-terra", "reasoning": "high", "preferred_model": "GPT-5.6 Terra", "timeout_s": 900},
+    "character-editor": {"engine": "claude", "model": "sonnet", "reasoning": "high", "preferred_model": "Claude Sonnet 5.5", "timeout_s": 900},
+    "showrunner": {"engine": "codex", "model": "gpt-5.6-terra", "reasoning": "high", "preferred_model": "GPT-5.6 Terra", "timeout_s": 900}
+  }
+}

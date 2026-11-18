@@ -29,6 +29,7 @@ MODULES.append("slop.agents.cli")  # after slop.gen.cli: it also adds `gen image
 MODULES.append("slop.onboard.cli")  # onboarding checklist: slop onboard status|next|mark|set|apply
 MODULES.append("slop.relay")  # Grok passes words, the production (Claude Code / Codex) works: slop relay ...
 MODULES.append("slop.update")  # a newer release? one quiet reminder per release; slop update apply installs it
+MODULES.append("slop.writers_room")  # local, artifact-first multi-agent creative development
 
 
 FULL_ONLY = {"torch", "torchaudio", "torchvision", "demucs", "transformers", "librosa", "cv2", "safetensors",

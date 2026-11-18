@@ -9,3 +9,7 @@ __pycache__/
 
 # local agent worktrees
 .claude/
+
+# Local creative records are not public application source.
+/writers-room/sessions/
+/templates/writers-room/assignments/original-human-ensemble-game-host.md
