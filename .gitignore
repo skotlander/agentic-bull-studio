@@ -13,3 +13,4 @@ __pycache__/
 # Local creative records are not public application source.
 /writers-room/sessions/
 /templates/writers-room/assignments/original-human-ensemble-game-host.md
+/writers-room/private/

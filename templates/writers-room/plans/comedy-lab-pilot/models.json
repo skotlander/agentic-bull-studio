@@ -1,0 +1,10 @@
+{
+  "description": "Comedy Lab pilot role assignments (five role invocations). The runner passes these selectors to the installed local CLIs and does not validate entitlement. The comedy editor and showrunner use different model families on purpose.",
+  "roles": {
+    "character-dialogue": {"engine": "claude", "model": "sonnet", "reasoning": "high", "preferred_model": "Claude Sonnet", "timeout_s": 900},
+    "satire-observation": {"engine": "claude", "model": "sonnet", "reasoning": "high", "preferred_model": "Claude Sonnet", "timeout_s": 900},
+    "situational-comedy": {"engine": "codex", "model": "gpt-5.6-terra", "reasoning": "high", "preferred_model": "GPT-5.6 Terra", "timeout_s": 900},
+    "comedy-editor": {"engine": "codex", "model": "gpt-5.6-terra", "reasoning": "high", "preferred_model": "GPT-5.6 Terra", "timeout_s": 900},
+    "showrunner": {"engine": "claude", "model": "sonnet", "reasoning": "high", "preferred_model": "Claude Sonnet", "timeout_s": 900}
+  }
+}
