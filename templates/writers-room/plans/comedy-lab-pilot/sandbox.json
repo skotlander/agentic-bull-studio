@@ -1,0 +1,7 @@
+{
+  "description": "Filesystem view of one Comedy Lab pilot role job (bubblewrap). System directories, the runner folder and the job's own folder are always mounted; nothing else is, except the paths listed here. Paths that do not exist are skipped. Review `slop writers-room sandbox-check` output before the first run.",
+  "tool": "bwrap",
+  "read_only": ["~/.local/bin", "~/.local/share/claude", "~/.nvm", "~/.npm-global", "~/.claudia/bin", "~/.claudia/npm", "/opt", "/mnt/wsl/resolv.conf", "/run/systemd/resolve", "/run/resolvconf"],
+  "read_write": ["~/.claude", "~/.claude.json", "~/.codex"],
+  "masked": ["~/.claude/projects", "~/.claude/todos", "~/.claude/shell-snapshots", "~/.claude/file-history", "~/.claude/history.jsonl", "~/.codex/sessions", "~/.codex/history.jsonl", "~/.codex/log"]
+}
